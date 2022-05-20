@@ -1,0 +1,17 @@
+# -Day2-SummerChallenge-19thMay2k22
+Question Leetcode 121. Best Time to Buy and Sell Stock
+Solution:
+class Solution {
+    public int maxProfit(int[] prices) {
+       int n = prices.length;
+        int maxToSell = 0;
+        int maxProfit = 0;
+        // traverse the array in reverse order
+        for (int i=n-2; i>=0; i--) {
+            maxToSell = Math.max(maxToSell, prices[i+1]);
+            maxProfit = Math.max(maxToSell - prices[i], maxProfit);
+        }
+        return maxProfit;
+      
+    }
+}
